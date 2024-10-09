@@ -6,7 +6,7 @@ crave_url_base='https://github.com/accupara/crave/releases/download/'
 crave_version='0.2-7037'
 crave_arch='amd64'
 crave_postfix='.bin'
-crave_default_location='/data/data/com.termux/files/home'
+crave_default_location='/data/data/com.termux/files/home/usr/bin'
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
@@ -40,7 +40,7 @@ chmod +x crave
 if [ -p /dev/stdin ] ; then
     install_crave=false
 else
-    echo -n "Install to system path (default: /data/data/com.termux/files/home) [y]/n ? "
+    echo -n "Install to system path (default: /data/data/com.termux/files/home/usr/bin) [y]/n ? "
     read ans
     case $ans in
         Y|y|1|"" ) install_crave=true;;
@@ -50,7 +50,7 @@ else
 fi
 
 if [[ $install_crave == true ]]; then
-    echo -n "Location to install crave [/data/data/com.termux/files/home]: "
+    echo -n "Location to install crave [/data/data/com.termux/files/home/usr/bin]: "
     read crave_location
     if [[ "$crave_locatin" == "" ]]; then
        crave_location="$crave_default_location"
